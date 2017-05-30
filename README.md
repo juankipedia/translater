@@ -4,8 +4,8 @@ project is implemented on Scala Programming Language with the purpose
 of learning fundamentals about Scala and some tools related*
 
 ### Developers team:
-*Marco Alejandro Sandoval* Email: marco@mammut.io
-*Juan Diego Morón* 		   Email: juan@mammut.io
+- *Marco Alejandro Sandoval* Email: marco@mammut.io
+- *Juan Diego Morón* 		   Email: juan@mammut.io
 
 #### Some concepts are being learned with this project.
 - *Currying*: translating a fuction that has multiple tuples of arguments into a sequence of functions.
