@@ -24,13 +24,12 @@ import scala.util.parsing.combinator._
   *params: strings arguments of program
   *date 30/05/2017
   */
-object ParseJSON extends Markdown {
+object ParseJSON extends Markdown{
   def main(args: Array[String]){
-    //  render = new FileReader(args(0))
-    println(parseAll(value,"# ObjectDefinition\n  ## \"address book\":\n       # ObjectDefinition\n            ## \"name\":\n                \"john smith\".\n            ## \"address\":\n                # ObjectDefinition\n                  ## \"street\":\n                    \"10 Market street\".\n                  ## \"city\":\n                    \"San Francisco, CA\".\n                  ## \"zip\":\n                    94111\n                # EndObjectDefinition .\n            ## \"phone numbers\":\n            *\"04140802832\",\n             \"04149798710\"*\n      # EndObjectDefinition .\n  ## \"value\": 333\n# EndObjectDefinition"))
+  val map = parseMarkdown(args(0))
+    println(map.apply("\"value\""))
   }
 }
-
 /**
   *brief: Markdown parser class that extends from JavaTokenParsers
   *date 30/05/2017
@@ -48,4 +47,11 @@ class Markdown extends JavaTokenParsers{
       | "true" ^^ (x => true)
       | "false" ^^ (x => false)
     )
+  def parseMarkdown(file: String): Map[String,Any] = {
+    val retMap = parseAll(obj, file)
+    retMap match {
+      case Success(result, next) =>
+        result
+    }
+  }
 }
