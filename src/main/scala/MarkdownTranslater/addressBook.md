@@ -1,20 +1,20 @@
 # ObjectDefinition
-## "address book":
+## address book:
 # ObjectDefinition
-## "name":
+## name:
 "john smith".
-## "address":
+## address:
 # ObjectDefinition
-## "street":
+## street:
 "10 Market street".
-## "city":
-"San Francisco, CA".
-## "zip":
+## city:
+"SanFrancisco,CA".
+## zip:
 94111
 # EndObjectDefinition .
-## "phone numbers":
+## phone numbers:
 *"04140802832",
 "04149798710"*
 # EndObjectDefinition .
-## "value": 333
+## value: 333
 # EndObjectDefinition

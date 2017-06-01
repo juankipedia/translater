@@ -14,16 +14,16 @@
   *date 30/05/2017
   */
 //Package definitions and imports
-package MarkdownParser
+package MarkdownTranslater
 import java.io.FileReader
 import scala.util.parsing.combinator._
 
 /**
-  *brief: Main Program to prove Markdown Parser
-  *params: strings arguments of program
+  *brief: Object to create a new JSON protocol, function "toJson"
+          is now going to be able to take an object of class
+          Map[String, Any] is going to be serialize to a JSON object
   *date 30/05/2017
   */
-
 import spray.json._
 object MyJsonProtocol extends DefaultJsonProtocol {
   implicit object MapJsonFormat extends JsonFormat[Map[String, Any]] {
@@ -32,26 +32,25 @@ object MyJsonProtocol extends DefaultJsonProtocol {
         case v: String => JsString(v)
         case v: Double => JsNumber(v)
         case v: Map[String, Any] => write(v)
-        case v: List[Any] => JsString("[" + listToJsonArray(v) + "]")
+        case v: List[String] => v.toJson
         case v: Any => JsString(v.toString)
       })
     }
     def read(value: JsValue) = ???
-    def listToJsonArray (v: List[Any]) : String = {
-      if(v.tail.isEmpty)
-        v.head.toString
-      else
-        v.head.toString + "," + listToJsonArray(v.tail)
-    }
   }
 }
 import spray.json._
 import MyJsonProtocol._
 
+/**
+  *brief: Main Program to prove Markdown Parser
+  *params: strings arguments of program
+  *date 30/05/2017
+  */
 object ParseMarkdown extends Markdown{
   def main(args: Array[String]){
-    val map = parseMarkdown("\\Users\\Juan Diego\\Documents\\MAMMUT\\translater\\src\\main\\scala\\MarkdownParser\\addressBook.md")
-    println(map.apply("\"address book\""))
+    val map = parseMarkdown("\\Users\\Juan Diego\\Documents\\MAMMUT\\translater\\src\\main\\scala\\MarkdownTranslater\\addressBook.md")
+    println(map.apply("address book"))
     println(map.toJson)
   }
 }
@@ -63,11 +62,11 @@ class Markdown extends JavaTokenParsers{
   def obj: Parser[Map[String, Any]] = "# ObjectDefinition"~>repsep(member, ".")<~"# EndObjectDefinition" ^^
     {case members => members.toMap}
   def arr: Parser[List[Any]] = "*"~>repsep(value,",")<~"*"
-  def member: Parser[(String,Any)] = "##"~>stringLiteral~":"~value ^^ {case name~":"~value => (name,value)}
+  def member: Parser[(String,Any)] = "##"~>"[a-zA-Z_][a-zA-Z0-9_ ]*".r~":"~value ^^ {case name~":"~value => (name,value)}
   def value: Parser[Any] = (
     obj
       | arr
-      | stringLiteral
+      | stringLiteral ^^ {str => str.substring(1, str.length - 1)}
       | floatingPointNumber ^^ (_.toDouble)
       | "null" ^^ (x => null)
       | "true" ^^ (x => true)
