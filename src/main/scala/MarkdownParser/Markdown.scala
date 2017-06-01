@@ -5,7 +5,7 @@
           rules:
             -Objects are members separated by "." and that are among expressions
              " # ObjectDefinition " and " # EndObjectDefinition "
-            -Arrays are values separated by "," and that are among "*"
+            -Arrays are values separated by "," and they are among "*"
             -Members are Strings and values separated by ":", and begins with "##"
             -Values are Objects or Arrays, Strings, Floating point number,"null","true"
              or "false"
@@ -13,7 +13,6 @@
   *version 1.0.
   *date 30/05/2017
   */
-
 //Package definitions and imports
 package MarkdownParser
 import java.io.FileReader
@@ -24,10 +23,10 @@ import scala.util.parsing.combinator._
   *params: strings arguments of program
   *date 30/05/2017
   */
-object ParseJSON extends Markdown{
+object ParseMarkdown extends Markdown{
   def main(args: Array[String]){
-  val map = parseMarkdown(args(0))
-    println(map.apply("\"value\""))
+    val map = parseMarkdown("\\Users\\Juan Diego\\Documents\\MAMMUT\\translater\\src\\main\\scala\\MarkdownParser\\addressBook.md")
+    println(map.apply("\"address book\""))
   }
 }
 /**
@@ -35,7 +34,8 @@ object ParseJSON extends Markdown{
   *date 30/05/2017
   */
 class Markdown extends JavaTokenParsers{
-  def obj: Parser[Map[String, Any]] = "# ObjectDefinition"~>repsep(member, ".")<~"# EndObjectDefinition" ^^ {Map() ++ _}
+  def obj: Parser[Map[String, Any]] = "# ObjectDefinition"~>repsep(member, ".")<~"# EndObjectDefinition" ^^
+    {case members => members.toMap}
   def arr: Parser[List[Any]] = "*"~>repsep(value,",")<~"*"
   def member: Parser[(String,Any)] = "##"~>stringLiteral~":"~value ^^ {case name~":"~value => (name,value)}
   def value: Parser[Any] = (
@@ -48,7 +48,8 @@ class Markdown extends JavaTokenParsers{
       | "false" ^^ (x => false)
     )
   def parseMarkdown(file: String): Map[String,Any] = {
-    val retMap = parseAll(obj, file)
+    val retMap = parseAll(obj, new FileReader(file))
+    println(retMap)
     retMap match {
       case Success(result, next) =>
         result

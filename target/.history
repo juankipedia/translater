@@ -1,3 +1,26 @@
 run
 scala
 console
+run ParseJSON
+run ParseJSON holi
+run ParseJSON \Users\Juan Diego\Documents\MAMMUT\translater\src\main\scala\MarkdownParser\addressBook.md
+run ParseJSON addressBook.md
+clear
+run ParseJSON addressBook.md
+run ParseJSON ./addressBook.md
+run ParseJSON .\addressBook.md
+run ParseJSON C:\Users\Juan Diego\Documents\MAMMUT\translater\src\main\scala\MarkdownParser\addressBook.md
+run ParseJSON \Users\Juan Diego\Documents\MAMMUT\translater\src\main\scala\MarkdownParser\addressBook.md
+run ParseJSON \\Users\\Juan Diego\\Documents\\MAMMUT\\translater\\src\\main\\scala\\MarkdownParser\\addressBook.md
+run ParseJSON \Users\Juan Diego\Documents\MAMMUT\translater\src\main\scala\MarkdownParser\addressBook.md
+run ParseJSON addressBook.md
+run ParseJSON
+run ParseMarkdown
+run ParseMarkdown \Users\Juan Diego\Documents\MAMMUT\translater\src\main\scala\MarkdownParser\addressBook.md
+run \Users\Juan Diego\Documents\MAMMUT\translater\src\main\scala\MarkdownParser\addressBook.md
+run ParseMarkdown \Users\Juan\_\Diego\Documents\MAMMUT\translater\src\main\scala\MarkdownParser\addressBook.md
+run \Users\Juan\_\Diego\Documents\MAMMUT\translater\src\main\scala\MarkdownParser\addressBook.md
+run \Users\Juan + Diego\Documents\MAMMUT\translater\src\main\scala\MarkdownParser\addressBook.md
+run \Users\Juan' 'Diego\Documents\MAMMUT\translater\src\main\scala\MarkdownParser\addressBook.md
+run \Users\Juan""Diego\Documents\MAMMUT\translater\src\main\scala\MarkdownParser\addressBook.md
+run
