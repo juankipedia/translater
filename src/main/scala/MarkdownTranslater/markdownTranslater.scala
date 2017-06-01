@@ -43,7 +43,7 @@ import spray.json._
 import MyJsonProtocol._
 
 /**
-  *brief: Main Program to prove Markdown Parser
+  *brief: Main Program to prove Markdown Parser finally issues were solve and Translater is working well
   *params: strings arguments of program
   *date 30/05/2017
   */
