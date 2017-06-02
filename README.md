@@ -1,4 +1,4 @@
-# "Translater" project Workflow
+# "Translater V1.0" project Workflow
 *This is a Translator from Markdown to JSON applying unitary proves, 
 project is implemented on Scala Programming Language with the purpose
 of learning fundamentals about Scala and some tools related*
@@ -16,3 +16,4 @@ of learning fundamentals about Scala and some tools related*
 - *parsing*: https://github.com/scala/scala-parser-combinators
 - *SprayJSON*: https://github.com/spray/spray-json
 - *Markdown sintaxis*: https://www.youtube.com/watch?v=6A5EpqqDOdk
+- *Wordspec*: http://doc.scalatest.org/3.0.1/#org.scalatest.WordSpec

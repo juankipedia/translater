@@ -1,5 +1,5 @@
 [0m[[0minfo[0m] [0m[32mParseMarkdownSpec:[0m[0m
 [0m[[0minfo[0m] [0m[32mParseMarkdown[0m[0m
-[0m[[0minfo[0m] [0m[32m- must Parse the addressBook.md file to an Map[0m[0m
+[0m[[0minfo[0m] [0m[32m- must Parse the addressBook.md file to a Map[0m[0m
 [0m[[0minfo[0m] [0m[32m- must Fail to read an un-format Markdown file[0m[0m
 [0m[[0minfo[0m] [0m[32m- must Parse the addressBook.md file to a JSON usin SprayJSON[0m[0m
