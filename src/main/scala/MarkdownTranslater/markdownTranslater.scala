@@ -39,21 +39,8 @@ object MyJsonProtocol extends DefaultJsonProtocol {
     def read(value: JsValue) = ???
   }
 }
-import spray.json._
-import MyJsonProtocol._
 
-/**
-  *brief: Main Program to prove Markdown Parser finally issues were solve and Translater is working well
-  *params: strings arguments of program
-  *date 30/05/2017
-  */
-object ParseMarkdown extends Markdown{
-  def main(args: Array[String]){
-    val map = parseMarkdown("\\Users\\Juan Diego\\Documents\\MAMMUT\\translater\\src\\main\\scala\\MarkdownTranslater\\addressBook.md")
-    println(map.apply("address book"))
-    println(map.toJson)
-  }
-}
+
 /**
   *brief: Markdown parser class that extends from JavaTokenParsers
   *date 30/05/2017
@@ -79,5 +66,28 @@ class Markdown extends JavaTokenParsers{
       case Success(result, next) =>
         result
     }
+  }
+}
+
+
+
+import spray.json._
+import MyJsonProtocol._
+
+/**
+  *brief: Main Program to prove Markdown Parser finally issues were solve and Translater is working well
+  *params: strings arguments of program
+  *date 30/05/2017
+  */
+object ParseMarkdown extends Markdown{
+
+  def markdownToJson(args: String){
+    val map = parseMarkdown(args)
+    println(map.toJson)
+  }
+
+  def onlyMarkdown(args: String) ={
+    val map = parseMarkdown((args))
+    println(map)
   }
 }
