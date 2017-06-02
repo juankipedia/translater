@@ -12,28 +12,28 @@ class ParseMarkdownSpec extends WordSpec{
 
   "ParseMarkdown " must {
 
-    "Parse the addressBook.md file to an Map" in {
+    "Parse the addressBook.md file to a Map" in {
         /*Linux*/
-        ParseMarkdown.onlyMarkdown("./src/main/scala/MarkdownTranslater/addressBook.md")
+        //ParseMarkdown.onlyMarkdown("./src/main/scala/MarkdownTranslater/addressBook.md")
         /*Windows*/
-        //ParseMarkdown.main(".\\src\\main\\scala\\MarkdownTranslater\\addressBook.md")
+        ParseMarkdown.onlyMarkdown(".\\src\\main\\scala\\MarkdownTranslater\\addressBook.md")
     }
 
     
     "Fail to read an un-format Markdown file" in {
-      /*Linux*/
       intercept[Exception] {
-        ParseMarkdown.onlyMarkdown("./src/main/scala/MarkdownTranslater/addressBookWrong.md")
+        /*Linux*/
+        //ParseMarkdown.onlyMarkdown("./src/main/scala/MarkdownTranslater/addressBookWrong.md")
         /*Windows*/
-        //ParseMarkdown.main(".\\src\\main\\scala\\MarkdownTranslater\\addressBookWrong.md")
+        ParseMarkdown.onlyMarkdown(".\\src\\main\\scala\\MarkdownTranslater\\addressBookWrong.md")
       }
     }
 
     "Parse the addressBook.md file to a JSON usin SprayJSON" in{
       /*Linux*/
-      ParseMarkdown.markdownToJson("./src/main/scala/MarkdownTranslater/addressBook.md")
+      //ParseMarkdown.markdownToJson("./src/main/scala/MarkdownTranslater/addressBook.md")
       /*Windows*/
-      //ParseMarkdown.markdownToJson(".\\src\\main\\scala\\MarkdownTranslater\\addressBook.md")
+      ParseMarkdown.markdownToJson(".\\src\\main\\scala\\MarkdownTranslater\\addressBook.md")
     }
 
   }

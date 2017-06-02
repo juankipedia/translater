@@ -24,3 +24,5 @@ run \Users\Juan + Diego\Documents\MAMMUT\translater\src\main\scala\MarkdownParse
 run \Users\Juan' 'Diego\Documents\MAMMUT\translater\src\main\scala\MarkdownParser\addressBook.md
 run \Users\Juan""Diego\Documents\MAMMUT\translater\src\main\scala\MarkdownParser\addressBook.md
 run
+run test
+test
