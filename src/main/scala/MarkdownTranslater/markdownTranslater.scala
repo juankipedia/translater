@@ -83,11 +83,11 @@ object ParseMarkdown extends Markdown{
 
   def markdownToJson(args: String){
     val map = parseMarkdown(args)
-    println(map.toJson)
+    map.toJson
   }
 
-  def onlyMarkdown(args: String) ={
+  def onlyMarkdown(args: String): Map[String, Any] ={
     val map = parseMarkdown((args))
-    println(map)
+    map
   }
 }
